@@ -7,30 +7,28 @@
  */
 // @ts-check
 const {themes} = require('prism-react-renderer');
-const analyticsPlugin = require('./plugins/analytics.js');
+const {GlobExcludeDefault} = require('@docusaurus/utils');
+const {onlineOrigins} = require('./hasor-tech/routes');
+const {assignProjectSlug} = require('./plugins/document-routes');
 const projectVars = require('./plugins/projectVars.js');
 const remarkProjectVars = require('./plugins/remark-project-vars.js');
-const {GlobExcludeDefault} = require('@docusaurus/utils');
 
 /** @type {import('@docusaurus/types').Config} */
-const config = {
+const config = require('./hasor-tech/config')({
     title: 'DataQL - 数据查询语言',
     tagline: 'DataQL 数据查询语言',
-    url: 'https://www.dataql.net',
-    baseUrl: '/',
+    url: process.env.DOCS_URL || onlineOrigins.dataql,
+    baseUrl: process.env.DOCS_BASE_URL || '/',
     onBrokenLinks: 'throw',
     markdown: {
         preprocessor: ({fileContent}) => remarkProjectVars.replaceVariables(fileContent, projectVars),
-        parseFrontMatter: ({filePath, fileContent, defaultParseFrontMatter}) => defaultParseFrontMatter({
-            filePath,
-            fileContent: remarkProjectVars.replaceVariables(fileContent, projectVars),
-        }),
+        parseFrontMatter: async ({filePath, fileContent, defaultParseFrontMatter}) => assignProjectSlug(__dirname, filePath,
+            await defaultParseFrontMatter({filePath, fileContent: remarkProjectVars.replaceVariables(fileContent, projectVars)})),
         hooks: {
             onBrokenMarkdownLinks: 'throw',
         },
     },
-    favicon: 'img/dataway.ico',
-    organizationName: 'zycgit', // Usually your GitHub org/user name.
+    organizationName: 'HasorTech', // Usually your GitHub org/user name.
     projectName: 'dataql',   // Usually your repo name.
     customFields: {project: projectVars},
 
@@ -45,25 +43,16 @@ const config = {
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
+                    path: 'docs/cn/docusaurus-plugin-content-docs/current',
+                    routeBasePath: '/',
                     remarkPlugins: [[remarkProjectVars, projectVars]],
                     sidebarPath: require.resolve('./sidebars.js'),
-                    editUrl: 'https://gitee.com/zycgit/dataql/blob/dev/document/',
+                    editLocalizedFiles: true,
+                    editUrl: 'https://gitee.com/hasortech/dataql/blob/dev/document/',
                 },
-                blog: {
-                    exclude: [...GlobExcludeDefault, '**/assets/**'],
-                    remarkPlugins: [[remarkProjectVars, projectVars]],
-                    showReadingTime: true,
-                    blogSidebarCount: 25,
-                    postsPerPage: 10,
-                    feedOptions: {
-                        type: ['rss', 'atom'],
-                        xslt: true,
-                    },
-                    onInlineTags: 'warn',
-                    onInlineAuthors: 'warn',
-                    onUntruncatedBlogPosts: 'warn',
-                    editUrl: 'https://gitee.com/zycgit/dataql/blob/dev/document/',
-                },
+                blog: false,
+                pages: process.env.NODE_ENV === 'development' ? {} : {exclude: [...GlobExcludeDefault, 'index.js']},
+                sitemap: {filename: 'dataql-sitemap.xml'},
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
                 },
@@ -79,54 +68,6 @@ const config = {
         colorMode: {
             disableSwitch: true,
         },
-        navbar: {
-            logo: {
-                alt: 'Dataway / DataQL',
-                src: 'img/dataway.svg',
-                width: 32,
-                height: 32,
-            },
-            items: [
-                {
-                    type: 'doc',
-                    docId: 'dataway/intro/overview',
-                    position: 'left',
-                    label: 'Dataway 框架',
-                },
-                {
-                    type: 'doc',
-                    docId: 'dataql/overview',
-                    position: 'left',
-                    label: 'DataQL 语言',
-                },
-                {
-                    type: 'doc',
-                    docId: 'releases/latest',
-                    position: 'left',
-                    label: '版本记录',
-                },
-                {
-                    to: '/blog/archive',
-                    activeBasePath: '/blog',
-                    position: 'left',
-                    label: '博客',
-                },
-                {
-                    position: 'right',
-                    label: '码云',
-                    href: 'https://gitee.com/zycgit/dataql'
-                },
-                {
-                    position: 'right',
-                    label: 'Github',
-                    href: 'https://github.com/zycgit/dataql'
-                },
-                {
-                    type: 'localeDropdown',
-                    position: 'right',
-                }
-            ]
-        },
         prism: {
             theme: themes.github,
             darkTheme: themes.dracula,
@@ -134,25 +75,10 @@ const config = {
         },
         footer: {
             style: 'dark',
-            copyright: `Copyright © ${new Date().getFullYear()} DataQL. Built with Docusaurus.<br/>
-<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33011002016704">
-<img src="/img/beian.png" style="display: inline-block;">浙公网安备 33011002016704号
-</a>&nbsp;&nbsp;<a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">浙ICP备18034797号-6</a>
-<div id="analyticsDiv" style="display: inline-block;"></div>`,
+            copyright: `Copyright © ${new Date().getFullYear()} DataQL. Built with Docusaurus.`,
         },
     },
     plugins: [
-        analyticsPlugin,
-        require.resolve('./plugins/blog-topics.js'),
-        [
-            require.resolve('./plugins/redirects.js'),
-            {
-                redirects: {
-                    '/web/dataql/what_is_dataql.html': '/docs/dataql/overview',
-                    '/web/dataway/about.html': '/docs/dataway/intro/overview',
-                },
-            },
-        ],
         [
             require.resolve('./plugins/llms.js'),
             {
@@ -168,10 +94,10 @@ const config = {
                     enableMarkdownFiles: false,
                     enableLlmsFullTxt: false,
                     includeDocs: true,
-                    includeBlog: true,
+                    includeBlog: false,
                     includePages: false,
                     includeGeneratedIndex: false,
-                    excludeRoutes: ['**/tags{,/**}', '**/search', '**/404.html', '**/blog', '**/blog/{archive,authors,page,topics}{,/**}'],
+                    excludeRoutes: ['**/tags{,/**}', '**/search', '**/404.html'],
                 },
             },
         ],
@@ -181,17 +107,19 @@ const config = {
             require.resolve('@easyops-cn/docusaurus-search-local'),
             {
                 hashed: true,
+                docsRouteBasePath: ['/dataql/docs', '/dataway/docs'],
+                indexBlog: false,
                 language: ['en', 'zh'],
             },
         ],
     ],
-};
+}, 'dataql');
 
 module.exports = function createConfig() {
     if (process.env.DOCUSAURUS_CURRENT_LOCALE !== 'en') {
         return config;
     }
-    const messages = require('./i18n/en/code.json');
+    const messages = require('./docs/en/code.json');
     return {
         ...config,
         title: messages['site.title'].message,

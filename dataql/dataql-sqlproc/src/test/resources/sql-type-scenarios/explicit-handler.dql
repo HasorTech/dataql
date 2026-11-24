@@ -1,0 +1,5 @@
+var query = @@selectSql(name)<%
+    SELECT CAST(#{name, jdbcType=VARCHAR,
+        typeHandler=net.hasor.dataql.sqlproc.documentation.UpperTextHandler} AS VARCHAR)
+%>;
+return query('Alice');

@@ -1,0 +1,6 @@
+var encode = @@selectSql(document)<%
+    SELECT CAST(#{document,
+        jdbcType=VARCHAR,
+        typeHandler=net.hasor.dataql.sqlproc.types.json.JsonTypeHandler} AS VARCHAR)
+%>;
+return encode({'name':'Alice','tags':['java','dataql']});

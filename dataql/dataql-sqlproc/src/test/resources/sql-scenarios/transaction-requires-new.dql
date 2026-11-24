@@ -1,0 +1,7 @@
+return tran.required(() -> {
+    run tran.requiresNew(() -> {
+        return change(2, 10);
+    });
+    run change(1, -10);
+    throw 500, 'Cancel outer transaction';
+});

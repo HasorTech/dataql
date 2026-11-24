@@ -1,0 +1,7 @@
+var add = @@insertXml(rows)<%
+    INSERT INTO people(name, age) VALUES
+    <foreach collection="rows" item="row" separator=",">
+        (#{row.name}, #{row.age})
+    </foreach>
+%>;
+return add([{'name':'Carol', 'age':20}, {'name':'David', 'age':28}]);

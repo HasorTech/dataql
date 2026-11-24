@@ -1,0 +1,14 @@
+hint FRAGMENT_SQL_OPEN_PACKAGE = 'off';
+hint FRAGMENT_SQL_COLUMN_CASE = 'lower';
+var find = @@selectXml(name, minAge)<%
+    SELECT id, name FROM people
+    <where>
+        <choose>
+            <when test="name != null and name != ''">name = #{name}</when>
+            <when test="minAge != null">age &gt;= #{minAge}</when>
+            <otherwise>enabled = 1</otherwise>
+        </choose>
+    </where>
+    ORDER BY id
+%>;
+return find('Alice', 30);

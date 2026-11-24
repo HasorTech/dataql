@@ -1,5 +1,5 @@
 {
-  "url": "https://www.dataql.net/",
+  "url": "https://www.hasor.net/dataql/",
   "licenses": [
     {
       "name": "The Apache Software License, Version 2.0",
@@ -13,9 +13,9 @@
     }
   ],
   "scm": {
-    "connection": "scm:git:git@gitee.com:zycgit/dataql.git",
-    "developerConnection": "scm:git:git@gitee.com:zycgit/dataql.git",
-    "url": "https://gitee.com/zycgit/dataql",
+    "connection": "scm:git:git@gitee.com:hasortech/dataql.git",
+    "developerConnection": "scm:git:git@gitee.com:hasortech/dataql.git",
+    "url": "https://gitee.com/hasortech/dataql",
     "tag": "HEAD"
   }
 }

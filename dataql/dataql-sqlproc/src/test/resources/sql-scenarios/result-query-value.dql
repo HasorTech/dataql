@@ -1,0 +1,3 @@
+hint FRAGMENT_SQL_OPEN_PACKAGE = 'column';
+var find = @@selectSql(id)<% SELECT name FROM people WHERE id = #{id} %>;
+return find(1);

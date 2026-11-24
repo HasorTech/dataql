@@ -4,7 +4,7 @@
 
 内嵌于 Java 应用的数据 API 开发框架，集数据查询、转换、聚合与接口发布于一体。
 
-[Website](https://www.dataql.net) · [Documentation](https://www.dataql.net/docs/dataway/intro/overview) · [Blog](https://www.dataql.net/blog) · [AI 文档索引](https://www.dataql.net/llms.txt)
+[Dataway 官网](https://www.hasor.net/dataway/) · [DataQL 官网](https://www.hasor.net/dataql/) · [使用文档](https://www.hasor.net/cn/dataway/docs/intro/overview) · [博客](https://www.hasor.net/cn/blog/dataql/) · [AI 文档索引](https://www.hasor.net/cn/llms.txt)
 
 ## 📖 简介 | Introduction
 
@@ -28,26 +28,26 @@ Dataway 提供从脚本开发到 API 发布的完整能力。开发者使用 SQL
 ![Dataway 控制台：编辑脚本、设置参数、预览结果和发布接口](document/static/img/dataway/quickstart-published.png)
 
 - API 管理：
-  - [可视化操作](https://www.dataql.net/docs/dataway/capabilities/management)：编辑、调试、测试、发布和停用接口，查看发布历史。
-  - [程序化管理](https://www.dataql.net/docs/dataway/capabilities/programmatic)：通过 Java 接口或管理 HTTP API 维护定义和版本。
+  - [可视化操作](https://www.hasor.net/cn/dataway/docs/capabilities/management)：编辑、调试、测试、发布和停用接口，查看发布历史。
+  - [程序化管理](https://www.hasor.net/cn/dataway/docs/capabilities/programmatic)：通过 Java 接口或管理 HTTP API 维护定义和版本。
   - 草稿与发布版分离，修改在再次发布后生效；版本检查用于检测并发更新冲突。
 - 数据查询与转换：
-  - [DataQL 语言](https://www.dataql.net/docs/dataql/overview)：使用表达式、函数和转换模板筛选字段、计算值、构造嵌套结果。
-  - [SQL 执行器](https://www.dataql.net/docs/dataway/dataql-engine/sql)：支持查询、更新、动态 SQL、分页、类型处理和事务。
-  - [数据源接入](https://www.dataql.net/docs/dataway/capabilities/datasources)：按名称访问多个数据源，组合数据库与应用服务的结果。
+  - [DataQL 语言](https://www.hasor.net/cn/dataql/docs/overview)：使用表达式、函数和转换模板筛选字段、计算值、构造嵌套结果。
+  - [SQL 执行器](https://www.hasor.net/cn/dataway/docs/dataql-engine/sql)：支持查询、更新、动态 SQL、分页、类型处理和事务。
+  - [数据源接入](https://www.hasor.net/cn/dataway/docs/capabilities/datasources)：按名称访问多个数据源，组合数据库与应用服务的结果。
 - 请求与响应：
-  - [请求参数](https://www.dataql.net/docs/dataway/capabilities/development/request)：接收 URL 参数、JSON、表单和上传文件，通过 Web 函数读写 Header 与 Cookie。
-  - [结果处理器](https://www.dataql.net/docs/dataway/capabilities/result-handlers)：输出结构化结果、原始值、CSV、文本和验证码图片，支持二进制响应与自定义处理器。
+  - [请求参数](https://www.hasor.net/cn/dataway/docs/capabilities/development/request)：接收 URL 参数、JSON、表单和上传文件，通过 Web 函数读写 Header 与 Cookie。
+  - [结果处理器](https://www.hasor.net/cn/dataway/docs/capabilities/result-handlers)：输出结构化结果、原始值、CSV、文本和验证码图片，支持二进制响应与自定义处理器。
   - 控制台按响应类型预览 JSON、文本、表格和图像，并提供文件下载。
 - 接口调用与文档：
-  - 通过 HTTP 访问已发布 API，或使用 [ApiService](https://www.dataql.net/docs/dataway/capabilities/development/java) 从 Java 按路径、标识直接调用。
-  - [文档生成](https://www.dataql.net/docs/dataway/capabilities/document)：生成 OpenAPI 3.x 和 Swagger 2.0 文档，配合 Swagger UI 展示和调用接口。
+  - 通过 HTTP 访问已发布 API，或使用 [ApiService](https://www.hasor.net/cn/dataway/docs/capabilities/development/java) 从 Java 按路径、标识直接调用。
+  - [文档生成](https://www.hasor.net/cn/dataway/docs/capabilities/document)：生成 OpenAPI 3.x 和 Swagger 2.0 文档，配合 Swagger UI 展示和调用接口。
 - 身份与扩展：
-  - [身份鉴权](https://www.dataql.net/docs/dataway/authorization)：接入应用登录体系，按身份控制 API 访问和管理操作。
-  - [管理拦截器](https://www.dataql.net/docs/dataway/configuration/admin-interceptors)与 [API 拦截器](https://www.dataql.net/docs/dataway/configuration/api-interceptors)：接入审计、校验、缓存等应用逻辑。
-  - [引擎扩展](https://www.dataql.net/docs/dataway/engine)：注册 Java 函数、应用对象、代码片段和自定义作用域。
+  - [身份鉴权](https://www.hasor.net/cn/dataway/docs/authorization)：接入应用登录体系，按身份控制 API 访问和管理操作。
+  - [管理拦截器](https://www.hasor.net/cn/dataway/docs/configuration/admin-interceptors)与 [API 拦截器](https://www.hasor.net/cn/dataway/docs/configuration/api-interceptors)：接入审计、校验、缓存等应用逻辑。
+  - [引擎扩展](https://www.hasor.net/cn/dataway/docs/engine)：注册 Java 函数、应用对象、代码片段和自定义作用域。
 - 元数据存储：
-  - [JDBC](https://www.dataql.net/docs/dataway/metadata/providers/jdbc) 或 [Nacos](https://www.dataql.net/docs/dataway/metadata/providers/nacos) 保存接口定义、草稿和发布记录。
+  - [JDBC](https://www.hasor.net/cn/dataway/docs/metadata/providers/jdbc) 或 [Nacos](https://www.hasor.net/cn/dataway/docs/metadata/providers/nacos) 保存接口定义、草稿和发布记录。
   - 支持表与字段映射、宿主事务整合和自定义存储提供者。
 
 ## 💡 为何选择 Dataway？ | Why Dataway
@@ -84,7 +84,7 @@ Dataway 提供从脚本开发到 API 发布的完整能力。开发者使用 SQL
 </dependency>
 ```
 
-通过 `DatawayConfig` 配置身份识别、数据库连接和脚本扩展，通过 `ApiDataAccessLayer` 接入元数据存储。完整配置见[快速开始](https://www.dataql.net/docs/dataway/intro/quickstart)；[Spring 示例](example/dataway-spring-example)提供数据初始化、登录、控制台和 Swagger UI。
+通过 `DatawayConfig` 配置身份识别、数据库连接和脚本扩展，通过 `ApiDataAccessLayer` 接入元数据存储。完整配置见[快速开始](https://www.hasor.net/cn/dataway/docs/intro/quickstart)；[Spring 示例](example/dataway-spring-example)提供数据初始化、登录、控制台和 Swagger UI。
 
 ### 2. 实战代码
 
@@ -164,11 +164,11 @@ Java 调用共用 API 拦截器、参数处理和结果处理器，也可通过 
 
 ## 📚 文档与资源 | Resources
 
-- [官方网站](https://www.dataql.net)、[快速开始](https://www.dataql.net/docs/dataway/intro/quickstart)、[文档指南](https://www.dataql.net/docs/dataway/intro/overview)。
-- 框架整合：[Spring](https://www.dataql.net/docs/dataway/integration/spring)、[Solon](https://www.dataql.net/docs/dataway/integration/solon)、[Hasor](https://www.dataql.net/docs/dataway/integration/hasor)。
+- [Dataway 官网](https://www.hasor.net/dataway/)、[快速开始](https://www.hasor.net/cn/dataway/docs/intro/quickstart)、[文档指南](https://www.hasor.net/cn/dataway/docs/intro/overview)。
+- 框架整合：[Spring](https://www.hasor.net/cn/dataway/docs/integration/spring)、[Solon](https://www.hasor.net/cn/dataway/docs/integration/solon)、[Hasor](https://www.hasor.net/cn/dataway/docs/integration/hasor)。
 - 示例工程：[Spring + JDBC](example/dataway-spring-example)、[Solon + JDBC](example/dataway-solon-example)、[Hasor + JDBC](example/dataway-hasor-example)、[Spring + Nacos](example/dataway-spring-nacos-example)。
-- 语言与引擎：[DataQL 语言手册](https://www.dataql.net/docs/dataql/overview)、[独立使用引擎](https://www.dataql.net/docs/dataway/dataql-engine)、[数据处理样例](example/dataql-blog-example)。
-- [博客文章](https://www.dataql.net/blog)、[AI 文档索引](https://www.dataql.net/llms.txt)。
+- 语言与引擎：[DataQL 语言手册](https://www.hasor.net/cn/dataql/docs/overview)、[独立使用引擎](https://www.hasor.net/cn/dataway/docs/dataql-engine)、[数据处理样例](example/dataql-blog-example)。
+- [博客文章](https://www.hasor.net/cn/blog/dataql/)、[AI 文档索引](https://www.hasor.net/cn/llms.txt)。
 - [开发指南](community/README.md)：仓库结构、环境准备、编译测试与文档维护。
 
 ## 📄 许可证 | License

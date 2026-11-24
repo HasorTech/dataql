@@ -1,0 +1,5 @@
+var find = @@selectSql(minAge, name)<%
+    SELECT name FROM people
+    WHERE age >= #{minAge + 1} AND name = #{name.trim()}
+%>;
+return find(24, ' Alice ');

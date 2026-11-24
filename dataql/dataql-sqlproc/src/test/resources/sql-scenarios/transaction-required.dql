@@ -1,0 +1,7 @@
+return tran.required(() -> {
+    run change(1, -10);
+    run tran.required(() -> {
+        return change(2, 10);
+    });
+    throw 500, 'Cancel transfer';
+});

@@ -143,7 +143,7 @@ java -jar example/dataway-spring-example/target/dataway-spring-example.jar
 
 首页还提供 Structure、Raw Value、CSV、Text、VerifyCode 五种结果处理器的调用示例。上传下载示例返回上传的文件；验证码示例将文本转换为 PNG，实际验证码的生成和校验由应用实现。
 
-配置分别位于 Spring 的 `application.yml`、Solon 的 `app.properties`、Hasor 的 `hconfig.xml`。完整接入方式见[框架整合](../document/docs/dataway/integration/buildtools.md)。
+配置分别位于 Spring 的 `application.yml`、Solon 的 `app.properties`、Hasor 的 `hconfig.xml`。完整接入方式见[框架整合](https://www.hasor.net/cn/dataway/docs/integration)。
 
 IDEA 可独立导入 `example/pom.xml`。先执行 Maven `compile` 准备 Swagger UI 资源，再运行对应的 `ExampleApplication`，产物统一位于 `target`。若同一工作区还导入 Gradle 源码，且 IDEA 将 Maven JAR 替换成了源码模块，可关闭 Registry 中的 `external.system.substitute.library.dependencies` 后重新导入 Maven。
 
@@ -217,35 +217,36 @@ npm run build
 ```bash
 cd document
 npm ci
-npm run start
+npm run start:alone
 ```
 
-中文预览使用 `npm run start`，英文使用 `npm run start -- --locale en`，一次启动一个语言。构建与检查：
+英文预览使用 `npm run start:alone -- --locale en`，一次启动一种语言。默认开发地址为 `http://localhost:4303/`，打开后进入当前语言的联合首页。Dataway、DataQL 的自动选语言入口分别是 `/dataway/` 和 `/dataql/`。
+
+构建与检查：
 
 ```bash
 # 在 document 中执行
-npm run build
+npm run build:alone
 npm run serve
 ```
 
-`build` 同时构建两种语言，输出 `build/` 和 `build/en/`；`serve` 用于检查构建结果，包括搜索、旧地址跳转和 `llms.txt`。需要清理缓存时执行 `npm run clear`。
+构建一次生成两个项目的双语首页和文档，中文与英文分别输出到 `build/cn/` 和 `build/en/`。`serve` 启动后，可直接打开上述路径检查构建结果、搜索和 `llms.txt`。独立站根入口会进入所选语言的联合首页。需要清理缓存时执行 `npm run clear`。
 
 ### 内容与资源
 
 `document` 目录按内容和站点资源组织：
 
-- `docs/dataway`：Dataway 使用、独立引擎接入和 Java 扩展。
-- `docs/dataql`：DataQL 语言、SQL 用法和函数库。
-- `docs/releases`：正式版本与开发版本记录。
-- `blog`：实践文章与配套样例。
-- `i18n/en`：英文文档、博客和界面翻译。
+- `docs/cn/docusaurus-plugin-content-docs/current/dataway`：Dataway 使用、独立引擎接入和 Java 扩展。
+- `docs/cn/docusaurus-plugin-content-docs/current/dataql`：DataQL 语言、SQL 用法和函数库。
+- `docs/cn/docusaurus-plugin-content-docs/current/releases`：正式版本与开发版本记录。
+- `docs/en/`：英文文档和界面翻译。
 - `src`：首页、样式与主题组件。
 - `static/img`、`static/files`：文档图片与下载附件，中英文共用。
-- `plugins`：文档变量、博客专栏、跳转与 AI 索引。
+- `plugins`：文档变量、文档路由与 AI 索引。
 
-导航在 `sidebars.js` 中维护，页面标题、菜单名称与编号保持一致。中文与英文文档使用相同路径和 ID，英文正文位于 `i18n/en/docusaurus-plugin-content-docs/current`；自定义界面文案位于 `i18n/en/code.json`。
+导航在 `sidebars.js` 中维护，页面标题、菜单名称与编号保持一致。中文与英文文档使用相同路径和 ID，英文正文位于 `docs/en/docusaurus-plugin-content-docs/current`；自定义界面文案位于 `docs/en/code.json`。
 
-文档图片使用 `/img/...`，附件使用 `/files/...`。调整章节时保留已发布的页面地址；确需迁移时，在 `docusaurus.config.js` 的 `redirects` 中配置旧地址到新地址的跳转。`plugins/redirects.js` 自动生成跳转页，`static` 中不再维护手写 HTML。变更插件或站点配置后重启预览服务。
+文档图片使用 `/img/...`，附件使用 `/files/...`。调整章节时检查对应语言的页面链接。变更插件或站点配置后重启预览服务。
 
 `plugins/projectVars.js` 维护 `docsVersion`、`developmentVersion`、`lastReleaseVer` 和 `lastReleaseTime`。依赖示例使用 `@project.docsVersion@`，历史文章和版本记录保留当时的版本。文档版本与 Java 制品版本分别维护。
 
@@ -265,13 +266,13 @@ language: zh-cn
 ---
 ```
 
-`blog/authors.yml`、`tags.yml`、`topics.yml` 分别管理作者、标签与专栏。英文博客位于 `i18n/en/docusaurus-plugin-content-blog`，使用相同的文件名日期、slug 和配置 ID。随文源码与配图放在 `blog/assets/<文章文件名（不含扩展名）>/`，两种语言共用。
+博客由 Hasor Tech 门户维护。文章位于 `www/docs/<语言>/docusaurus-plugin-content-blog/dataql/`，配图位于中文文章目录下的 `assets/`。
 
 版本记录按依赖示例、更新内容和必要的升级说明组织。系列的 `position`、版本页的 `sidebar_position` 均从最早版本的 `999` 向下递减，使较新版本排在前面；版本概览固定为 `0`，编号同步英文。
 
 ### AI 索引
 
-构建时由 `plugins/llms.js` 生成 `build/llms.txt` 和 `build/en/llms.txt`，列出语言、框架、扩展和博客的阅读入口。项目说明取自两种语言 `dataql/overview.md` 中的 `llms:start` / `llms:end` 标记。维护概览时保留这一对标记。
+构建时由 `plugins/llms.js` 生成 `build/cn/llms.txt` 和 `build/en/llms.txt`，列出语言、框架、扩展和博客的阅读入口。项目说明取自两种语言 `dataql/overview.md` 中的 `llms:start` / `llms:end` 标记。维护概览时保留这一对标记。
 
 ## 发布
 
@@ -293,16 +294,16 @@ maven.central.publishing_type=USER_MANAGED
 
 ### 文档站点
 
-将 [oss-config.sample.json](../document/oss-config.sample.json) 中的 `dataql` 项填入本机 `~/.hasor-docs-deploy.json`，配置凭据、Bucket、前缀和 CDN 地址，然后执行：
+按 [配置示例](../document/oss-config.sample.json) 填写本机 `~/.hasor-docs-deploy.json`。门户模式使用 `sites.portal`，独立模式使用 `sites.dataql`。
 
 ```bash
 cd document
-./deploy.sh
+./deploy.sh --mode portal --dry-run
 ```
 
-脚本创建 `.deploy-venv`、安装 Python 依赖，依次构建、上传到 OSS 并提交 CDN 刷新。可通过 `HASOR_DOCS_DEPLOY_CONFIG` 指定配置文件路径。上传覆盖同名文件，远端旧文件不会自动删除；凭据不纳入仓库。
+`--dry-run` 生成并检查发布清单。实际发布时去掉该参数，脚本会构建、上传到 OSS 并提交 CDN 刷新。可通过 `HASOR_DOCS_DEPLOY_CONFIG` 指定配置文件路径。上传覆盖同名文件，远端旧文件不会自动删除；凭据不纳入仓库。
 
-`npm run deploy` 是 Docusaurus 自带的部署入口，本站 OSS/CDN 发布使用 `deploy.sh`。
+`npm run deploy:docusaurus` 是 Docusaurus 自带的部署入口，本站 OSS/CDN 发布使用 `deploy.sh`。
 
 ## 代码与文档约定
 

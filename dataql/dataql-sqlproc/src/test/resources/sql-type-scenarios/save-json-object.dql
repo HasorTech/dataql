@@ -1,0 +1,6 @@
+var save = @@insertSql(id, document)<%
+    INSERT INTO preferences(id, document)
+    VALUES (#{id}, #{document, jdbcType=VARCHAR,
+        typeHandler=net.hasor.dataql.sqlproc.types.json.JsonTypeHandler})
+%>;
+return save(1, {'name':'Alice', 'tags':['java','dataql'], 'nickname':null});

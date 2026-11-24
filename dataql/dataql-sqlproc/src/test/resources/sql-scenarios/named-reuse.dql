@@ -1,0 +1,4 @@
+var find = @@selectSql(age)<%
+    SELECT name FROM people WHERE age >= #{age} AND age <= :age
+%>;
+return find(25);

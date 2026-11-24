@@ -1,0 +1,4 @@
+var find = @@selectSql(keyword)<%
+    SELECT name FROM people WHERE name LIKE #{'%' + keyword + '%'}
+%>;
+return find('Ali');

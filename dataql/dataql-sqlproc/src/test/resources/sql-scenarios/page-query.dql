@@ -1,0 +1,12 @@
+hint FRAGMENT_SQL_QUERY_BY_PAGE = true;
+hint FRAGMENT_SQL_QUERY_BY_PAGE_NUMBER_OFFSET = 1;
+hint FRAGMENT_SQL_OPEN_PACKAGE = 'off';
+hint FRAGMENT_SQL_COLUMN_CASE = 'lower';
+var find = @@selectSql(minAge)<%
+    SELECT id, name FROM people WHERE age >= #{minAge} ORDER BY id
+%>;
+var page = find(20);
+run page.setPageInfo({'currentPage':2, 'pageSize':1});
+var rows = page.data();
+var info = page.pageInfo();
+return {'rows':rows, 'total':info.totalCount, 'currentPage':info.currentPage};

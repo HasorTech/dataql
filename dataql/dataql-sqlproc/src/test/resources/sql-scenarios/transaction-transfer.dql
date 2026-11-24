@@ -1,0 +1,13 @@
+import 'net.hasor.dataql.sqlproc.execute.transaction.TransactionUdfSource' as tran;
+var change = @@updateSql(id, amount)<%
+    UPDATE accounts SET balance = balance + #{amount} WHERE id = #{id}
+%>;
+return tran.required(() -> {
+    if (change(1, -10) != 1) {
+        throw 404, 'Source account not found';
+    }
+    if (change(2, 10) != 1) {
+        throw 404, 'Target account not found';
+    }
+    return 'done';
+});

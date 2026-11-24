@@ -1,0 +1,4 @@
+var count = @@selectSql(tableName, minAge)<%
+    SELECT count(*) FROM ${tableName} WHERE age >= #{minAge}
+%>;
+return count('people', 25);

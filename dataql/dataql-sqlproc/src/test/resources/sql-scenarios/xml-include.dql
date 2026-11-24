@@ -1,0 +1,6 @@
+hint FRAGMENT_SQL_OPEN_PACKAGE = 'off';
+hint FRAGMENT_SQL_COLUMN_CASE = 'lower';
+var find = @@selectXml()<%
+    SELECT id, name FROM people WHERE <include refid="adult"/> ORDER BY id
+%>;
+return find();

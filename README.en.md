@@ -4,7 +4,7 @@
 
 An embedded data API framework for Java applications, combining data queries, transformation, aggregation, and API publishing.
 
-[Website](https://www.dataql.net/en/) · [Documentation](https://www.dataql.net/en/docs/dataway/intro/overview) · [Blog](https://www.dataql.net/en/blog) · [AI Documentation Index](https://www.dataql.net/en/llms.txt)
+[Dataway Website](https://www.hasor.net/dataway/) · [DataQL Website](https://www.hasor.net/dataql/) · [Documentation](https://www.hasor.net/en/dataway/docs/intro/overview) · [Blog](https://www.hasor.net/en/blog/dataql/) · [AI Documentation Index](https://www.hasor.net/en/llms.txt)
 
 ## 📖 Introduction
 
@@ -28,26 +28,26 @@ The built-in DataQL language and execution engine support database queries, Java
 ![Dataway console: edit scripts, enter parameters, preview results, and publish APIs](document/static/img/dataway/quickstart-published.png)
 
 - API management:
-  - [Visual console](https://www.dataql.net/en/docs/dataway/capabilities/management): edit, debug, test, publish, and disable APIs, and view publication history.
-  - [Programmatic management](https://www.dataql.net/en/docs/dataway/capabilities/programmatic): manage definitions and versions through Java interfaces or management HTTP APIs.
+  - [Visual console](https://www.hasor.net/en/dataway/docs/capabilities/management): edit, debug, test, publish, and disable APIs, and view publication history.
+  - [Programmatic management](https://www.hasor.net/en/dataway/docs/capabilities/programmatic): manage definitions and versions through Java interfaces or management HTTP APIs.
   - Draft changes take effect after publishing. Version checks detect concurrent updates.
 - Data queries and transformation:
-  - [DataQL language](https://www.dataql.net/en/docs/dataql/overview): use expressions, functions, and transformation templates to select fields, compute values, and build nested results.
-  - [SQL executor](https://www.dataql.net/en/docs/dataway/dataql-engine/sql): queries, updates, dynamic SQL, pagination, type handling, and transactions.
-  - [Data source integration](https://www.dataql.net/en/docs/dataway/capabilities/datasources): access multiple data sources by name and combine results from databases and application services.
+  - [DataQL language](https://www.hasor.net/en/dataql/docs/overview): use expressions, functions, and transformation templates to select fields, compute values, and build nested results.
+  - [SQL executor](https://www.hasor.net/en/dataway/docs/dataql-engine/sql): queries, updates, dynamic SQL, pagination, type handling, and transactions.
+  - [Data source integration](https://www.hasor.net/en/dataway/docs/capabilities/datasources): access multiple data sources by name and combine results from databases and application services.
 - Requests and responses:
-  - [Request parameters](https://www.dataql.net/en/docs/dataway/capabilities/development/request): accept URL parameters, JSON, forms, and uploaded files; read and write headers and cookies through Web functions.
-  - [Result handlers](https://www.dataql.net/en/docs/dataway/capabilities/result-handlers): return structured results, raw values, CSV, text, and verification code images, with support for binary responses and custom handlers.
+  - [Request parameters](https://www.hasor.net/en/dataway/docs/capabilities/development/request): accept URL parameters, JSON, forms, and uploaded files; read and write headers and cookies through Web functions.
+  - [Result handlers](https://www.hasor.net/en/dataway/docs/capabilities/result-handlers): return structured results, raw values, CSV, text, and verification code images, with support for binary responses and custom handlers.
   - The console previews JSON, text, tables, and images according to the response type and supports file downloads.
 - API invocation and documentation:
-  - Call published APIs over HTTP or use [ApiService](https://www.dataql.net/en/docs/dataway/capabilities/development/java) to invoke them directly from Java by path or ID.
-  - [Document generation](https://www.dataql.net/en/docs/dataway/capabilities/document): generate OpenAPI 3.x and Swagger 2.0 documents for browsing and API calls in Swagger UI.
+  - Call published APIs over HTTP or use [ApiService](https://www.hasor.net/en/dataway/docs/capabilities/development/java) to invoke them directly from Java by path or ID.
+  - [Document generation](https://www.hasor.net/en/dataway/docs/capabilities/document): generate OpenAPI 3.x and Swagger 2.0 documents for browsing and API calls in Swagger UI.
 - Identity and extensions:
-  - [Authorization](https://www.dataql.net/en/docs/dataway/authorization): integrate your login system and control API access and management operations by identity.
-  - [Admin interceptors](https://www.dataql.net/en/docs/dataway/configuration/admin-interceptors) and [API interceptors](https://www.dataql.net/en/docs/dataway/configuration/api-interceptors): add application logic such as auditing, validation, and caching.
-  - [Engine extensions](https://www.dataql.net/en/docs/dataway/engine): register Java functions, application objects, code fragments, and custom scopes.
+  - [Authorization](https://www.hasor.net/en/dataway/docs/authorization): integrate your login system and control API access and management operations by identity.
+  - [Admin interceptors](https://www.hasor.net/en/dataway/docs/configuration/admin-interceptors) and [API interceptors](https://www.hasor.net/en/dataway/docs/configuration/api-interceptors): add application logic such as auditing, validation, and caching.
+  - [Engine extensions](https://www.hasor.net/en/dataway/docs/engine): register Java functions, application objects, code fragments, and custom scopes.
 - Metadata storage:
-  - Store API definitions, drafts, and publication records in [JDBC databases](https://www.dataql.net/en/docs/dataway/metadata/providers/jdbc) or [Nacos](https://www.dataql.net/en/docs/dataway/metadata/providers/nacos).
+  - Store API definitions, drafts, and publication records in [JDBC databases](https://www.hasor.net/en/dataway/docs/metadata/providers/jdbc) or [Nacos](https://www.hasor.net/en/dataway/docs/metadata/providers/nacos).
   - Customize table and field mappings, integrate application transactions, or implement a storage provider.
 
 ## 💡 Why Dataway?
@@ -84,7 +84,7 @@ For a Spring Boot project, add the framework integration, JDBC metadata storage,
 </dependency>
 ```
 
-Configure identity resolution, database connections, and script extensions through `DatawayConfig`, and connect metadata storage through `ApiDataAccessLayer`. See [Quick Start](https://www.dataql.net/en/docs/dataway/intro/quickstart) for the complete configuration. The [Spring example](example/dataway-spring-example) includes data initialization, login, the console, and Swagger UI.
+Configure identity resolution, database connections, and script extensions through `DatawayConfig`, and connect metadata storage through `ApiDataAccessLayer`. See [Quick Start](https://www.hasor.net/en/dataway/docs/intro/quickstart) for the complete configuration. The [Spring example](example/dataway-spring-example) includes data initialization, login, the console, and Swagger UI.
 
 ### 2. Code Examples
 
@@ -164,11 +164,11 @@ Java calls use the same API interceptors, parameter processing, and result handl
 
 ## 📚 Resources
 
-- [Website](https://www.dataql.net/en/), [Quick Start](https://www.dataql.net/en/docs/dataway/intro/quickstart), and [Documentation](https://www.dataql.net/en/docs/dataway/intro/overview).
-- Framework integrations: [Spring](https://www.dataql.net/en/docs/dataway/integration/spring), [Solon](https://www.dataql.net/en/docs/dataway/integration/solon), and [Hasor](https://www.dataql.net/en/docs/dataway/integration/hasor).
+- [Dataway Website](https://www.hasor.net/dataway/), [Quick Start](https://www.hasor.net/en/dataway/docs/intro/quickstart), and [Documentation](https://www.hasor.net/en/dataway/docs/intro/overview).
+- Framework integrations: [Spring](https://www.hasor.net/en/dataway/docs/integration/spring), [Solon](https://www.hasor.net/en/dataway/docs/integration/solon), and [Hasor](https://www.hasor.net/en/dataway/docs/integration/hasor).
 - Example projects: [Spring + JDBC](example/dataway-spring-example), [Solon + JDBC](example/dataway-solon-example), [Hasor + JDBC](example/dataway-hasor-example), and [Spring + Nacos](example/dataway-spring-nacos-example).
-- Language and engine: [DataQL Language Reference](https://www.dataql.net/en/docs/dataql/overview), [Standalone Engine](https://www.dataql.net/en/docs/dataway/dataql-engine), and [Data Processing Examples](example/dataql-blog-example).
-- [Blog](https://www.dataql.net/en/blog) and [AI Documentation Index](https://www.dataql.net/en/llms.txt).
+- Language and engine: [DataQL Language Reference](https://www.hasor.net/en/dataql/docs/overview), [Standalone Engine](https://www.hasor.net/en/dataway/docs/dataql-engine), and [Data Processing Examples](example/dataql-blog-example).
+- [Blog](https://www.hasor.net/en/blog/dataql/) and [AI Documentation Index](https://www.hasor.net/en/llms.txt).
 - [Developer Guide (Chinese)](community/README.md): repository structure, prerequisites, builds, tests, and documentation maintenance.
 
 ## 📄 License

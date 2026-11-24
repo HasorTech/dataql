@@ -1,0 +1,9 @@
+hint FRAGMENT_SQL_OPEN_PACKAGE = 'off';
+hint FRAGMENT_SQL_COLUMN_CASE = 'lower';
+var rows = @@selectSql(names)<%
+    @{pairs, #{names},
+        @{iftext, i > 0, UNION ALL}
+        SELECT CAST(#{v} AS VARCHAR) AS name
+    }
+%>;
+return rows(['Alice', 'Bob']);

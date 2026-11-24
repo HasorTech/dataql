@@ -1,0 +1,6 @@
+var find = @@selectSql(name)<%
+    SELECT count(*) FROM people WHERE 1 = 1
+    @{if, name != null, AND name = #{name}}
+    @{if, name == null, AND name IS NULL}
+%>;
+return find(null);

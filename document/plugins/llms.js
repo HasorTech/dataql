@@ -8,6 +8,7 @@
 const {loadFreshModule} = require('@docusaurus/utils');
 const {readFile, writeFile} = require('node:fs/promises');
 const path = require('node:path');
+const {projectDocSlug} = require('./document-routes');
 const projectVars = require('./projectVars.js');
 const {replaceVariables} = require('./remark-project-vars.js');
 
@@ -113,8 +114,7 @@ module.exports = async function llmsPlugin(context, {overview, descriptions, ...
 };
 
 async function readOverview({siteDir, siteConfig, i18n}, overview, markdown, base) {
-    const directory = i18n.currentLocale === i18n.defaultLocale ? 'docs' :
-        'i18n/' + i18n.currentLocale + '/docusaurus-plugin-content-docs/current';
+    const directory = 'docs/' + i18n.localeConfigs[i18n.currentLocale].path + '/docusaurus-plugin-content-docs/current';
     const file = path.join(siteDir, directory, overview);
     const source = replaceVariables(await readFile(file, 'utf8'), projectVars);
     const sections = [...source.matchAll(/\{\/\* llms:start \*\/\}([\s\S]*?)\{\/\* llms:end \*\/\}/g)];
@@ -129,7 +129,7 @@ async function readOverview({siteDir, siteConfig, i18n}, overview, markdown, bas
             } else {
                 const target = new URL(node.url, 'https://docs.invalid/' + overview);
                 const documentPath = target.pathname.slice(1).replace(/\.(md|mdx)$/, '');
-                node.url = new URL('docs/' + documentPath, base).href + target.search + target.hash;
+                node.url = new URL(projectDocSlug('/' + documentPath).slice(1), base).href + target.search + target.hash;
             }
         }
         for (const child of node.children ?? []) {

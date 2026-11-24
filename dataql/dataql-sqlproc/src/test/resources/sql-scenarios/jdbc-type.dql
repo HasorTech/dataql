@@ -1,0 +1,4 @@
+var clear = @@updateSql(id, name)<%
+    UPDATE people SET name = #{name, jdbcType=VARCHAR} WHERE id = #{id}
+%>;
+return clear(1, null);

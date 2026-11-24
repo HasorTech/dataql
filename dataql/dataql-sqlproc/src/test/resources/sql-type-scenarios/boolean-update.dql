@@ -1,0 +1,4 @@
+var query = @@selectSql(enabled)<%
+    SELECT CAST(#{enabled, typeHandler=net.hasor.dataql.sqlproc.types.number.IntegerAsBooleanTypeHandler} AS INTEGER)
+%>;
+return query(true);

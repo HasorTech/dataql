@@ -1,0 +1,4 @@
+var query = @@selectSql(items)<%
+    SELECT CAST(#{items, jdbcType=ARRAY} AS DOUBLE ARRAY)
+%>;
+return query([1.25, null, 2]);

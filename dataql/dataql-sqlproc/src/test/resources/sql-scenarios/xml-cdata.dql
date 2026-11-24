@@ -1,0 +1,9 @@
+hint FRAGMENT_SQL_OPEN_PACKAGE = 'off';
+var find = @@selectXml(maxAge)<%
+    SELECT name FROM people
+    <where>
+        <if test="maxAge != null"><![CDATA[AND age < #{maxAge}]]></if>
+    </where>
+    ORDER BY id
+%>;
+return find(30);

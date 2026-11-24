@@ -1,0 +1,4 @@
+var find = @@selectSql(arg0)<%
+    SELECT name FROM people WHERE id = #{arg0, jdbcType=BIGINT}
+%>;
+return find(1);

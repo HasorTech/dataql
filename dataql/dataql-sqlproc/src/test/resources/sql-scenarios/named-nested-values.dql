@@ -1,0 +1,5 @@
+var find = @@selectSql(filter, ids)<%
+    SELECT name FROM people
+    WHERE age >= #{filter.minAge} AND id = #{ids[0]}
+%>;
+return find({'minAge':20}, [1,2]);

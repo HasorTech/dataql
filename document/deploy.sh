@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-# Copyright 2015-2026 the original author or authors.
-#
-# Licensed under the Apache License, Version 2.0.
-# See the LICENSE.txt file for the full license.
-# https://www.apache.org/licenses/LICENSE-2.0
-
 set -euo pipefail
 
 cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
@@ -14,6 +8,12 @@ for command_name in python3 npm; do
         echo "Error: $command_name is required." >&2
         exit 1
     fi
+done
+
+for argument in "$@"; do
+    case "$argument" in
+        --dry-run|-h|--help) exec python3 -B deploy.py "$@" ;;
+    esac
 done
 
 # Keep deployment dependencies separate from the system Python environment.
@@ -37,6 +37,4 @@ run_dependency_step() {
 run_dependency_step python3 -m venv .deploy-venv
 run_dependency_step .deploy-venv/bin/python -m pip install --disable-pip-version-check -r requirements-deploy.txt
 
-.deploy-venv/bin/python deploy.py
-
-echo "Documentation uploaded and CDN refresh submitted successfully."
+.deploy-venv/bin/python -B deploy.py "$@"

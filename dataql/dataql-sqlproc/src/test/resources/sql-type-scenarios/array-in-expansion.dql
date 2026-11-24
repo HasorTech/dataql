@@ -1,0 +1,4 @@
+var find = @@selectSql(ids)<%
+    SELECT id, name FROM people WHERE 1 = 1 @{in, AND id IN #{ids}}
+%>;
+return find([1, 2]);

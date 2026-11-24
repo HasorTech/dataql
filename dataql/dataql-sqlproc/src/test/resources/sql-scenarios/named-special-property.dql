@@ -1,0 +1,4 @@
+var find = @@selectSql(values)<%
+    SELECT name FROM people WHERE id = #{['values']}
+%>;
+return find(1);

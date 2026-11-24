@@ -1,0 +1,4 @@
+var query = @@selectSql(text)<%
+    SELECT CAST(#{text, jdbcType=NCHAR} AS NCHAR(4))
+%>;
+return query('中文测试');

@@ -1,0 +1,4 @@
+var find = @@selectSql(arg0, arg1)<%
+    SELECT name FROM people WHERE age >= ? AND age < ?
+%>;
+return find(20, 30);

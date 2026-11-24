@@ -1,0 +1,7 @@
+hint FRAGMENT_SQL_OPEN_PACKAGE = 'off';
+hint FRAGMENT_SQL_COLUMN_CASE = 'lower';
+var find = @@selectSql(column, direction, minAge)<%
+    SELECT id, name, age FROM people
+    WHERE age >= #{minAge} ORDER BY ${column} ${direction}
+%>;
+return find('age', 'DESC', 20);

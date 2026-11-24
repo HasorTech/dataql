@@ -1,0 +1,13 @@
+hint FRAGMENT_SQL_OPEN_PACKAGE = 'off';
+hint FRAGMENT_SQL_COLUMN_CASE = 'lower';
+var find = @@selectXml(name)<%
+    SELECT id, name FROM people
+    <where>
+        <if test="name != null and name != ''">
+            <bind name="pattern" value="'%' + name + '%'"/>
+            name LIKE #{pattern}
+        </if>
+    </where>
+    ORDER BY id
+%>;
+return find('Ali');

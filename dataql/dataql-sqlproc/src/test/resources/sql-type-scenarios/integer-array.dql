@@ -1,0 +1,4 @@
+var query = @@selectSql(items)<%
+    SELECT CAST(#{items, jdbcType=ARRAY} AS INTEGER ARRAY)
+%>;
+return query([1, 2, 3]);

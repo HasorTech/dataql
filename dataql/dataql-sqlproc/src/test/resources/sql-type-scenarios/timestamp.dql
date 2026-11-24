@@ -1,0 +1,4 @@
+var query = @@selectSql(createdAt)<%
+    SELECT CAST(#{createdAt, jdbcType=TIMESTAMP} AS TIMESTAMP)
+%>;
+return query('2026-10-05 12:34:56');

@@ -1,0 +1,13 @@
+hint FRAGMENT_SQL_OPEN_PACKAGE = 'off';
+hint FRAGMENT_SQL_COLUMN_CASE = 'lower';
+var find = @@selectSql(ids)<%
+    SELECT id, name FROM people WHERE enabled = 1
+    @{case, ,
+        @{when, ids != null and ids.size() > 0,
+            @{in, AND id IN #{ids}}
+        }
+        @{else, AND 1 = 0}
+    }
+    ORDER BY id
+%>;
+return find([]);

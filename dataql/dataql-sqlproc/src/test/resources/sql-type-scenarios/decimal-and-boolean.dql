@@ -1,0 +1,5 @@
+var query = @@selectSql(amount, enabled)<%
+    SELECT CAST(#{amount} AS DECIMAL(12, 2)) AS "amount",
+           CAST(#{enabled, jdbcType=BOOLEAN} AS BOOLEAN) AS "enabled"
+%>;
+return query(123.45, true);

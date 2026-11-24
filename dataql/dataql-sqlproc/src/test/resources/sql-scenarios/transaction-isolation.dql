@@ -1,0 +1,8 @@
+hint isolation = 'READ_COMMITTED';
+import 'net.hasor.dataql.sqlproc.execute.transaction.TransactionUdfSource' as tran;
+var balance = @@selectSql(id)<% SELECT balance FROM accounts WHERE id = #{id} %>;
+return tran.required(() -> {
+    var first = balance(1);
+    var second = balance(1);
+    return {'first':first, 'second':second};
+});

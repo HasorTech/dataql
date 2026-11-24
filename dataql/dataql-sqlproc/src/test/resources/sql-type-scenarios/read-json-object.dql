@@ -1,0 +1,6 @@
+import 'net.hasor.dataql.host.function.encryt.JsonUdfSource' as json;
+var find = @@selectSql(id)<%
+    SELECT document FROM preferences WHERE id = #{id}
+%>;
+var document = json.fromJson(find(1));
+return {'name':document.name, 'firstTag':document.tags[0]};
