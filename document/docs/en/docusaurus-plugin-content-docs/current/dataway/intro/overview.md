@@ -45,4 +45,4 @@ Follow [Quick start](quickstart.md) to publish and call an API with Spring Boot 
 3. [Write the script](../capabilities/development/script.md), then save and publish it through [Visual operations](../capabilities/management.md#api-status).
 4. Enable [Swagger / OpenAPI documents](../capabilities/document.md) when needed.
 
-This guide uses `@project.docsVersion@` with JDK 17. Examples use Spring Boot 4.1, Solon 4.1 and Hasor 5.3.
+This guide uses `@project.lastReleaseVer@` with JDK 17. Examples use Spring Boot 4.1, Solon 4.1 and Hasor 5.3.

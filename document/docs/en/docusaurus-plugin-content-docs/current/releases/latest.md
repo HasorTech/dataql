@@ -7,8 +7,7 @@ title: Release notes
 # Release notes
 
 Latest stable version: **v@project.lastReleaseVer@**<br/>
-Release date: **@project.lastReleaseTime@**<br/>
-Documentation version: **@project.docsVersion@**
+Release date: **@project.lastReleaseTime@**
 
 Versions use the **major.minor.patch** format.
 
@@ -18,10 +17,13 @@ Versions use the **major.minor.patch** format.
 
 ## Current versions
 
-- Current stable release: [v@project.lastReleaseVer@](5.0.x/v5.0.0.md)
-- Current development version: [v@project.developmentVersion@](5.0.x/v5.0.1.md)
+- Current stable release: [v@project.lastReleaseVer@](@project.lastReleaseNotesPath@)
 
 ## Previous releases
+
+### v5.0.x
+
+[v5.0.1](5.0.x/v5.0.1.md) · [v5.0.0](5.0.x/v5.0.0.md)
 
 ### v4.2.x
 

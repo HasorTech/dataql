@@ -18,7 +18,7 @@ The parser creates a query model, which the compiler turns into QIL. The executo
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataql-engine</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 ```
 

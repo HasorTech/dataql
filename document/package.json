@@ -1,6 +1,7 @@
 {
   "name": "dataql-doc",
-  "version": "5.0.0",
+  "version": "5.0.1",
+  "lastReleaseTime": "2026-11-27",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",

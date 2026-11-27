@@ -248,7 +248,7 @@ npm run serve
 
 文档图片使用 `/img/...`，附件使用 `/files/...`。调整章节时检查对应语言的页面链接。变更插件或站点配置后重启预览服务。
 
-`plugins/projectVars.js` 维护 `docsVersion`、`developmentVersion`、`lastReleaseVer` 和 `lastReleaseTime`。依赖示例使用 `@project.docsVersion@`，历史文章和版本记录保留当时的版本。文档版本与 Java 制品版本分别维护。
+文档站的 `package.json` 提供当前正式版本和发布日期。依赖示例使用 `@project.lastReleaseVer@`，历史文章和版本记录保留当时的版本。文档版本与 Java 制品版本分别维护。
 
 ### 博客与版本记录
 

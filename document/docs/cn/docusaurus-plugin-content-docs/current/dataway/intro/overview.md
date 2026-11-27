@@ -45,4 +45,4 @@ Dataway 采用“核心 + 适配器”结构，支持 Spring、Solon、Hasor。�
 3. 在控制台[编写脚本](../capabilities/development/script.md)，按[可视化操作](../capabilities/management.md#api-status)保存并发布。
 4. 按需开放 [Swagger / OpenAPI 文档](../capabilities/document.md)。
 
-本指南使用 `@project.docsVersion@`，运行基线为 JDK 17。框架示例分别使用 Spring Boot 4.1、Solon 4.1 和 Hasor 5.3。
+本指南使用 `@project.lastReleaseVer@`，运行基线为 JDK 17。框架示例分别使用 Spring Boot 4.1、Solon 4.1 和 Hasor 5.3。

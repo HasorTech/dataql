@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dependency and schema
 
 ```groovy
-implementation 'net.hasor:dataway-meta-jdbc:@project.docsVersion@'
+implementation 'net.hasor:dataway-meta-jdbc:@project.lastReleaseVer@'
 ```
 
 The application supplies the JDBC driver and DataSource. This module uses dbVisitor to access the database.

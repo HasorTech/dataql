@@ -121,7 +121,7 @@ function HomepageHero() {
                     <div className={styles.heroCopy}>
                         <div className={styles.heroEyebrow}>
                             <span>DATAWAY + DATAQL</span>
-                            <Link to="/dataql/docs/releases/latest" className={styles.version}>v{siteConfig.customFields.project.docsVersion}</Link>
+                            <Link to="/dataql/docs/releases/latest" className={styles.version}>v{siteConfig.customFields.project.lastReleaseVer}</Link>
                         </div>
                         <h1>
                             <Translate id="homepage.hero.title">把数据，</Translate>

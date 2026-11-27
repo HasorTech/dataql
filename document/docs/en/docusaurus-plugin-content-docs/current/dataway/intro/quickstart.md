@@ -24,19 +24,19 @@ Add the framework integration, JDBC metadata store, and SQL extension to a Sprin
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataway-spring</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 <!-- Stores API definitions and releases -->
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataway-meta-jdbc</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 <!-- SQL execution -->
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataql-sqlproc</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 ```
 
@@ -45,11 +45,11 @@ Add the framework integration, JDBC metadata store, and SQL extension to a Sprin
 
 ```groovy title="build.gradle"
 // Spring integration
-implementation 'net.hasor:dataway-spring:@project.docsVersion@'
+implementation 'net.hasor:dataway-spring:@project.lastReleaseVer@'
 // Stores API definitions and releases
-implementation 'net.hasor:dataway-meta-jdbc:@project.docsVersion@'
+implementation 'net.hasor:dataway-meta-jdbc:@project.lastReleaseVer@'
 // SQL execution
-implementation 'net.hasor:dataql-sqlproc:@project.docsVersion@'
+implementation 'net.hasor:dataql-sqlproc:@project.lastReleaseVer@'
 ```
 
 </TabItem>

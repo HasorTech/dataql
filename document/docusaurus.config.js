@@ -10,8 +10,7 @@ const {themes} = require('prism-react-renderer');
 const {GlobExcludeDefault} = require('@docusaurus/utils');
 const {onlineOrigins} = require('./hasor-tech/routes');
 const {assignProjectSlug} = require('./plugins/document-routes');
-const projectVars = require('./plugins/projectVars.js');
-const remarkProjectVars = require('./plugins/remark-project-vars.js');
+const {projectVars, replaceVariables} = require('./plugins/projectVars.js');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = require('./hasor-tech/config')({
@@ -21,9 +20,9 @@ const config = require('./hasor-tech/config')({
     baseUrl: process.env.DOCS_BASE_URL || '/',
     onBrokenLinks: 'throw',
     markdown: {
-        preprocessor: ({fileContent}) => remarkProjectVars.replaceVariables(fileContent, projectVars),
+        preprocessor: ({fileContent}) => replaceVariables(fileContent),
         parseFrontMatter: async ({filePath, fileContent, defaultParseFrontMatter}) => assignProjectSlug(__dirname, filePath,
-            await defaultParseFrontMatter({filePath, fileContent: remarkProjectVars.replaceVariables(fileContent, projectVars)})),
+            await defaultParseFrontMatter({filePath, fileContent: replaceVariables(fileContent)})),
         hooks: {
             onBrokenMarkdownLinks: 'throw',
         },
@@ -45,7 +44,6 @@ const config = require('./hasor-tech/config')({
                 docs: {
                     path: 'docs/cn/docusaurus-plugin-content-docs/current',
                     routeBasePath: '/',
-                    remarkPlugins: [[remarkProjectVars, projectVars]],
                     sidebarPath: require.resolve('./sidebars.js'),
                     editLocalizedFiles: true,
                     editUrl: 'https://gitee.com/hasortech/dataql/blob/dev/document/',
@@ -85,8 +83,8 @@ const config = require('./hasor-tech/config')({
                 siteTitle: 'DataQL and Dataway',
                 overview: 'dataql/overview.md',
                 descriptions: {
-                    'zh-cn': `DataQL ${projectVars.docsVersion} 使用文档：查询语言、执行引擎、内嵌 Dataway 和框架集成。`,
-                    en: `DataQL ${projectVars.docsVersion} documentation: query language, execution engine, embedded Dataway, and framework integration.`,
+                    'zh-cn': `DataQL ${projectVars.lastReleaseVer} 使用文档：查询语言、执行引擎、内嵌 Dataway 和框架集成。`,
+                    en: `DataQL ${projectVars.lastReleaseVer} documentation: query language, execution engine, embedded Dataway, and framework integration.`,
                 },
                 depth: 2,
                 onRouteError: 'throw',

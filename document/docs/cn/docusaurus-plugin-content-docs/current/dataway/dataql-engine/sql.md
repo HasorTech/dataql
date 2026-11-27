@@ -21,7 +21,7 @@ import TabItem from '@theme/TabItem';
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataql-sqlproc</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 ```
 
@@ -29,7 +29,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="gradle" label="Gradle">
 
 ```groovy
-implementation 'net.hasor:dataql-sqlproc:@project.docsVersion@'
+implementation 'net.hasor:dataql-sqlproc:@project.lastReleaseVer@'
 ```
 
 </TabItem>

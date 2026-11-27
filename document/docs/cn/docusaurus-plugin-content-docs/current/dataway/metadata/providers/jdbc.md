@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## 引入和准备
 
 ```groovy
-implementation 'net.hasor:dataway-meta-jdbc:@project.docsVersion@'
+implementation 'net.hasor:dataway-meta-jdbc:@project.lastReleaseVer@'
 ```
 
 应用提供 JDBC 驱动和 DataSource，本模块使用 dbVisitor 访问数据库。

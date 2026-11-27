@@ -5,7 +5,7 @@ title: "6.3.2 Nacos 提供者"
 ## 引入和准备
 
 ```groovy
-implementation 'net.hasor:dataway-meta-nacos:@project.docsVersion@'
+implementation 'net.hasor:dataway-meta-nacos:@project.lastReleaseVer@'
 ```
 
 应用创建 ConfigService，配置地址、命名空间和认证，并管理客户端生命周期。

@@ -32,17 +32,17 @@ Spring 提供依赖注入、MVC 和事务管理，Spring Boot 提供启动与自
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataway-spring</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataway-meta-jdbc</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataql-sqlproc</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 ```
 
@@ -50,9 +50,9 @@ Spring 提供依赖注入、MVC 和事务管理，Spring Boot 提供启动与自
 <TabItem value="gradle" label="Gradle">
 
 ```groovy
-implementation 'net.hasor:dataway-spring:@project.docsVersion@'
-implementation 'net.hasor:dataway-meta-jdbc:@project.docsVersion@'
-implementation 'net.hasor:dataql-sqlproc:@project.docsVersion@'
+implementation 'net.hasor:dataway-spring:@project.lastReleaseVer@'
+implementation 'net.hasor:dataway-meta-jdbc:@project.lastReleaseVer@'
+implementation 'net.hasor:dataql-sqlproc:@project.lastReleaseVer@'
 ```
 
 </TabItem>

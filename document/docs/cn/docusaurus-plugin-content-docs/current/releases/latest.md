@@ -7,8 +7,7 @@ title: 版本说明
 # 版本说明
 
 最新正式版本：**v@project.lastReleaseVer@**<br/>
-发布日期：**@project.lastReleaseTime@**<br/>
-文档版本：**@project.docsVersion@**
+发布日期：**@project.lastReleaseTime@**
 
 版本号格式：**主版本号.次版本号.修订版本号**。
 
@@ -18,10 +17,13 @@ title: 版本说明
 
 ## 当前版本
 
-- 当前正式版本：[v@project.lastReleaseVer@](5.0.x/v5.0.0.md)
-- 当前开发版本：[v@project.developmentVersion@](5.0.x/v5.0.1.md)
+- 当前正式版本：[v@project.lastReleaseVer@](@project.lastReleaseNotesPath@)
 
 ## 历史版本
+
+### v5.0.x
+
+[v5.0.1](5.0.x/v5.0.1.md) · [v5.0.0](5.0.x/v5.0.0.md)
 
 ### v4.2.x
 

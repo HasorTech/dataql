@@ -18,7 +18,7 @@ DataQL 引擎将脚本编译为 QIL 并执行，可直接嵌入 Java 应用。�
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataql-engine</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 ```
 

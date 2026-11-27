@@ -24,19 +24,19 @@ import TabItem from '@theme/TabItem';
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataway-spring</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 <!-- 保存接口定义和发布记录 -->
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataway-meta-jdbc</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 <!-- SQL 执行能力 -->
 <dependency>
     <groupId>net.hasor</groupId>
     <artifactId>dataql-sqlproc</artifactId>
-    <version>@project.docsVersion@</version>
+    <version>@project.lastReleaseVer@</version>
 </dependency>
 ```
 
@@ -45,11 +45,11 @@ import TabItem from '@theme/TabItem';
 
 ```groovy title="build.gradle"
 // Spring 框架整合
-implementation 'net.hasor:dataway-spring:@project.docsVersion@'
+implementation 'net.hasor:dataway-spring:@project.lastReleaseVer@'
 // 保存接口定义和发布记录
-implementation 'net.hasor:dataway-meta-jdbc:@project.docsVersion@'
+implementation 'net.hasor:dataway-meta-jdbc:@project.lastReleaseVer@'
 // SQL 执行能力
-implementation 'net.hasor:dataql-sqlproc:@project.docsVersion@'
+implementation 'net.hasor:dataql-sqlproc:@project.lastReleaseVer@'
 ```
 
 </TabItem>

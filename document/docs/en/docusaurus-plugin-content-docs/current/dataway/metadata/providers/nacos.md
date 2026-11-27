@@ -5,7 +5,7 @@ title: "6.3.2 Nacos provider"
 ## Dependency and provisioning
 
 ```groovy
-implementation 'net.hasor:dataway-meta-nacos:@project.docsVersion@'
+implementation 'net.hasor:dataway-meta-nacos:@project.lastReleaseVer@'
 ```
 
 The application creates ConfigService, configures its address, namespace and credentials, and manages its lifecycle.
