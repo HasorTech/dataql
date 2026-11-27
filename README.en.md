@@ -12,7 +12,7 @@ Dataway provides a complete workflow from writing scripts to publishing APIs. De
 
 The built-in DataQL language and execution engine support database queries, Java service calls, data transformations, and aggregation across multiple sources. Use Dataway for dashboards, list and detail queries, form submissions, and service aggregation while reducing repetitive data access and API code.
 
-![Dataway connects application data, business services, and frontend APIs](document/static/img/dataway/application-overview.png)
+![Dataway connects application data, business services, and frontend APIs](document/dataway/static/img/dataway/application-overview.png)
 
 ## ✨ Features
 
@@ -25,7 +25,7 @@ The built-in DataQL language and execution engine support database queries, Java
 
 ### 🔋 Capabilities
 
-![Dataway console: edit scripts, enter parameters, preview results, and publish APIs](document/static/img/dataway/quickstart-published.png)
+![Dataway console: edit scripts, enter parameters, preview results, and publish APIs](document/dataway/static/img/dataway/quickstart-published.png)
 
 - API management:
   - [Visual console](https://www.hasor.net/en/dataway/docs/capabilities/management): edit, debug, test, publish, and disable APIs, and view publication history.

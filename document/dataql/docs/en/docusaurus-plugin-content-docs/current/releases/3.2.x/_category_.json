@@ -1,0 +1,10 @@
+{
+  "label": "v3.2.x",
+  "position": 999,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+        "slug": "/releases/3.2.x",
+    "title": "v3.2.x"
+  }
+}

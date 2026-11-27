@@ -1,0 +1,26 @@
+{
+  "credentials": {
+    "oss": {
+      "accessKeyId": "YOUR_ACCESS_KEY_ID",
+      "accessKeySecret": "YOUR_ACCESS_KEY_SECRET"
+    }
+  },
+  "sites": {
+    "dataql": {
+      "credential": "oss",
+      "endpoint": "https://oss-endpoint.example.invalid",
+      "bucketName": "your-bucket",
+      "prefix": "your-prefix",
+      "cdnUrl": "https://cdn.example.invalid/your-refresh-directory/",
+      "publicUrl": "https://docs.example.invalid",
+      "baseUrl": "/your-public-path/"
+    },
+    "portal": {
+      "credential": "oss",
+      "endpoint": "oss-endpoint.example.invalid",
+      "bucketName": "your-portal-bucket",
+      "prefix": "",
+      "cdnUrl": "https://portal.example.invalid/"
+    }
+  }
+}

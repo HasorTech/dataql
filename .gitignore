@@ -17,9 +17,9 @@ npm-debug.log*
 
 # Documentation
 .docusaurus/
-/document/.deploy-venv/
-/document/__pycache__/
-/document/oss-config.json
+/document/*/.deploy-venv/
+/document/*/__pycache__/
+/document/*/oss-config.json
 
 # IDE and OS files
 bin/

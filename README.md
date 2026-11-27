@@ -12,7 +12,7 @@ Dataway 提供从脚本开发到 API 发布的完整能力。开发者使用 SQL
 
 框架内置 DataQL 语言与执行引擎，支持查询数据库、调用 Java 服务、转换数据结构和聚合多个来源的结果。适用于报表看板、列表与详情查询、表单提交及服务聚合，减少重复的数据访问和接口代码。
 
-![Dataway 连接应用数据、业务服务与前端接口](document/static/img/dataway/application-overview.png)
+![Dataway 连接应用数据、业务服务与前端接口](document/dataway/static/img/dataway/application-overview.png)
 
 ## ✨ 核心特性 | Features
 
@@ -25,7 +25,7 @@ Dataway 提供从脚本开发到 API 发布的完整能力。开发者使用 SQL
 
 ### 🔋 基础能力 (Capabilities)
 
-![Dataway 控制台：编辑脚本、设置参数、预览结果和发布接口](document/static/img/dataway/quickstart-published.png)
+![Dataway 控制台：编辑脚本、设置参数、预览结果和发布接口](document/dataway/static/img/dataway/quickstart-published.png)
 
 - API 管理：
   - [可视化操作](https://www.hasor.net/cn/dataway/docs/capabilities/management)：编辑、调试、测试、发布和停用接口，查看发布历史。
